@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Planet Express Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <header>
+        <p>This report generated on <%= Time.now %>
+      </header>
+      <h1>Total money made this week: $<%= total_income %></h1>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <% deliveries.first.keys.each do |key| %>
+            <th><%= key %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <% deliveries.each do |delivery| %>
+          <tr>
+            <td><%= delivery["Destination"] %></td><td><%= delivery["Shipment"] %></td>
+            <td><%= delivery["Crates"] %></td><td>$<%= delivery["Money"] %></td>
+          </tr>
+        <% end %>
+      </table>
+  <br>
+  <br>
+  <br>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <% second_table_head.each do |element| %>
+            <th><%= element %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <% employees.length.times do |n| %>
+        <tr>
+          <td><%= employees[n] %></td>
+          <td><%= pilot_deliveries[n].count %></td>
+          <td>$<%= pilot_bonus[n] %></td>
+        </tr>
+        <% end %>
+      </table>
+  </div>
+  </body>
+</html>
