@@ -8,7 +8,7 @@ end
 
 bonus_multiplier = 0.10
 employees = %w(Fry Amy Bender Leela)
-planets = %w(Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto)
+planets = %w(Mercury Venus Earth Moon Mars Jupiter Saturn Uranus Neptune Pluto)
 second_table_head = ["Employee", "Deliveries", "Bonus Pay"]
 third_table_head = ["Planet", "Total Deliveries"]
 pilot_destinations = {}

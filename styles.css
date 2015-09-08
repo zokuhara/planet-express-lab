@@ -1,9 +1,10 @@
 html {
   background-color: #ECF0F1;
 }
-#wrapper {
 
+#wrapper {
 }
+
 header {
   background-color: #E74C3C;
   color: #EEE;
@@ -11,13 +12,18 @@ header {
   font-size: 20px;
   line-height: 2.6em;
 }
+
 header p {
   padding-left: 20px;
 }
+
 h1 {
   padding-left: 30px;
 }
 
 tr {
+  padding-left: 20px;
+}
+table td {
   padding-left: 20px;
 }
