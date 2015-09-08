@@ -8,7 +8,9 @@ end
 
 bonus_multiplier = 0.10
 employees = %w(Fry Amy Bender Leela)
+planets = %w(Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto)
 second_table_head = ["Employee", "Deliveries", "Bonus Pay"]
+third_table_head = ["Planet", "Total Deliveries"]
 pilot_destinations = {}
 pilot_destinations["Fry"] = "Earth"
 pilot_destinations["Amy"] = "Mars"
@@ -45,6 +47,25 @@ pilot_receipts.each do |receipt|
   pilot_bonus << receipt.reduce(:+) * bonus_multiplier
 end
 
+planet_deliveries = []
+planets.each do |planet|
+  planet_deliveries << deliveries.select do |delivery|
+    planet.include? delivery["Destination"]
+  end
+end
+
+planet_totals = []
+planet_deliveries.each do |planet_delivery|
+  planet_totals << planet_delivery.map do |delivery|
+    delivery["Money"].to_i
+  end
+end
+
+planet_receipts = []
+planet_totals.each do |planet|
+  planet_receipts << planet.reduce(:+)
+end
+
 b = binding
 template = File.read("./report.erb")
 result = ERB.new(template).result(b)
@@ -54,10 +75,6 @@ result = ERB.new(template).result(b)
 #  {"name"=> "Amy", "trip_count"=«total» , "total_bonus"=> «total» }
 #  ...
 #]
-
-# print result
-# puts
-
 
 
 File.open("./report.html", "wb") {|f| f << result}

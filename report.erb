@@ -46,6 +46,24 @@
         </tr>
         <% end %>
       </table>
+      <br>
+      <br>
+      <br>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <% third_table_head.each do |element| %>
+            <th><%= element %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <% planets.length.times do |n| %>
+        <tr>
+          <td><%= planets[n] %></td>
+          <td>$<%= planet_receipts[n] %></td>
+        </tr>
+        <% end %>
+      </table>
   </div>
   </body>
 </html>
